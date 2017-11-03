@@ -15,6 +15,7 @@ public class CreatePanel extends JPanel
  JPanel listPane;
  JPanel buttonPane;
  JFrame frame;
+ JTextArea browseFilePath;
  public CreatePanel(){
 	 //initializing all the buttons, text areas
 	 //frame = new JFrame("Text Analzyer");
@@ -34,12 +35,16 @@ public class CreatePanel extends JPanel
 	 help.addActionListener(listen);
 	 
 	 fileInformation = new JTextArea("No Files");
-	 fileInformation.setSize(50,800);
+	 fileInformation.setSize(50,80);
 	 
 	 scroll = new JScrollPane(fileInformation);
 	 
-	 fileHistory = new JTextArea();
-	 fileHistory.setSize(50,800);
+	 fileHistory = new JTextArea("No File History");
+	 fileHistory.setSize(50,80);
+	 
+	 browseFilePath = new JTextArea();
+	 browseFilePath.setSize(2,5);
+	 
 	 listPane = new JPanel();
 	 
 	 listPane.setLayout(new BoxLayout(listPane, BoxLayout.PAGE_AXIS));
@@ -49,6 +54,8 @@ public class CreatePanel extends JPanel
 	 buttonPane.setLayout(new BoxLayout(buttonPane, BoxLayout.LINE_AXIS));
 	 buttonPane.add(browse);
 	 buttonPane.add(submit);
+	 
+	 listPane.add(browseFilePath);
 	 listPane.add(buttonPane);
 	 listPane.add(fileInformation);
 	 listPane.add(fileHistory);

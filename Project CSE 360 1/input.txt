@@ -1,0 +1,192 @@
+MEGAMAN UNLIMITED   (v1.1.0)
+
+Thank you for downloading Megaman Unlimited! We hope you will enjoy the game.
+
+
+To play the game, extract the content of the .zip file into a dedicated folder on 
+your computer.
+Then double-click the mmu.exe file. Have fun! ^_^
+
+IMPORTANT: If the game doesn't run on your computer, please download and install 
+the Microsoft Visual Studio 2008 Redistributable package found here:
+http://www.microsoft.com/en-us/download/details.aspx?id=5582
+
+IMPORTANT: If you are using Windows 8 and the game doesn't run, 
+1: Right-click on MMU.exe and select "Properties".
+2: Click the "Compatibility" tab.
+3: Under "Compatibility Mode", activate "Run this program in compatibility mode for"
+4: In the drop down menu, select "Windows 7".
+
+IMPORTANT: Megaman Unlimited requires roughly 500 Mb of RAM to run. Make sure you 
+have at least this amount of memory free on your system when starting the game.
+
+If you are running the game on a laptop, make sure your power settings are set 
+to focused on performance.
+
+
+Planning, Game Design, Level Design & Art: Philippe Poulin
+Programming: Jean-Simon Brochu and Gabriel Leblanc
+Music: Kevin Phetsomphou, Philippe Poulin, Yan Thouin
+
+
+8 robots have gone on a rampage and are wreaking havoc on the city and 
+throughout the world! The robots are Dr. Wily’s creations! However, 
+Dr. Wily claimed that the robots are not under his control and has 
+vowed to help fix the problem along with Dr. Light...
+But just as they both start to work on their investigation of the 
+mysterious force that took control of Wily’s robots, a shadowy figure 
+breaks into the lab and kidnaps Dr. Wily!
+Dr. Wily: “Help!!!”
+Dr. Light: “Mega Man! Go after Wily’s kidnapper! It might be the key to 
+this mystery!
+Mega Man: “Right! I’m on it!”
+Mega Man runs off into action once again with his trusty companion Rush.
+Meanwhile, standing on top of a damaged building, Proto Man also looks on as 
+the city goes up in flames. 
+He then disappears in the shadows, hoping to find out some answers himself...
+
+
+
+Default Keyboard Controls During Gameplay:
+------------------------------------------------------------------------------------
+Move Megaman: 					Arrows
+Climb Ladder: 					Arrows UP and DOWN
+Jump Button: 					Z
+Fire Button: 					A
+Slide Button: 					DOWN + Z or X
+L Button (Switch to Next Weapon):		W
+R Button (Switch to Previous Weapon): 		Q
+Start Button (Access Status Screen): 		ENTER
+Select Button (Access Menu Screen): 		ESC
+
+This game has no Charge Shot ability.
+
+
+Default Keyboard Controls in Game Menus:
+------------------------------------------------------------------------------------
+Move Cursor:					Arrows
+Confirm Selection:				Start Button
+Access Shop Menu from Stage Select Screen:	Select Button
+To exit some menus, move the cursor to the BACK option and confirm.
+
+You can skip some cutscenes (Except in-game ones) by pressing the SPACEBAR or 
+the START button.
+
+
+Game Menu
+------------------------------------------------------------------------------------
+NEW GAME - Start a new game from the beginning.
+
+LOAD GAME - Load your progress from a previously saved game data.
+
+OPTIONS - Customize some game settings.
+
+TITLE SCREEN - Returns you back to the Title Screen (You will lose un-saved 
+progress)
+
+EXIT GAME - Exit the game (You will lose un-saved progress)
+
+
+
+Difficulty
+------------------------------------------------------------------------------------
+ORIGINAL - Play the game as it was originally released.
+
+EASY - Play an easier version of the game.
+	- Enemies deal less damage.
+	- Some enemies are less aggressive.
+	- Final stages have an extra checkpoint.
+	- Platforms are placed to help you in more difficult areas.
+
+INSTA-DEATH - Play the game in original difficulty but with special rules.
+	- Megaman dies instantly.
+	- You can't use Energy Tanks.
+
+
+
+Save Menu
+------------------------------------------------------------------------------------
+- Select a savegame slot to save the data to and confirm your selection.
+
+
+
+Load Menu
+------------------------------------------------------------------------------------
+- Select a savegame data to load and confirm your selection.
+
+
+
+Options
+------------------------------------------------------------------------------------
+- DISPLAY SIZE
+	Press Left or Right to set the display size for the game: Default is 3x  
+	(You can set it up to 1x, 2x, 3x, 4x or FullScreen)
+	- NOTE: Full Screen display might not work on some computers and the game 
+	  won't start. 
+	  To reset the game to normal display, open the options.xopts file and 
+	  change the value of "option name="display"" to 3. (3 is the default)
+	  (0 is FullScreen)
+
+- FILTERING
+	Press Left or Right to toggle Filtering on or off. 
+	(The filtering makes the pixels smooth if you don't like blocky pixels)
+
+- MAP KEYBOARD INPUTS  (Set up the controls for your keyboard.)
+	Record each key you want to assign to each displayed function one-by-one. 
+
+- MAP CONTROLLER INPUTS  (Set up the controls for your controller.)
+	Record each button you want to assign to each displayed function one-by-one. 
+	To skip a function without assigning a button to it, press ESC.
+	
+	NOTE: To use a controller, you must plug it in BEFORE starting the game.
+
+- DOWN+JUMP SLIDE
+	Press Left or right to toggle Down+Jump to Slide on or off.
+	(This is for players who use analog sticks and trigger the slide by mistake 
+	when jumping and/or players who prefer to only use the dedicated Slide 
+	button.)
+
+- RESTORE DEFAULT
+	Select this to restore the default settings.
+
+- SAVE AND EXIT
+	All settings will be saved when exiting the Options Menu.
+
+
+
+Stage Select Screen
+------------------------------------------------------------------------------------
+Highlight the mugshot of the Robot Master you would like to face next and confirm.
+Press the Select Button (Default keyboard key: ESC) to access the Main Menu.
+
+
+Main Menu
+------------------------------------------------------------------------------------
+STAGE SELECT - Returns you to the Stage Select Screen.
+
+CONTINUE - Returns you back to the stage you were playing (This option only 
+appears when you ran out of lives)
+
+SHOP - Megaman visits Dr Light's Lab. You can spend gathered bolts here to buy items.
+
+SAVE GAME - Save your progress to a savegame slot.
+
+LOAD GAME - Load your progress from a previously saved game data.
+
+TITLE SCREEN - Returns you back to the Title Screen (You will lose un-saved progress)
+
+Exit Game - Exit the game (You will lose un-saved progress)
+
+
+System Menu  (Press SELECT during gameplay)
+------------------------------------------------------------------------------------
+RESUME GAME - Returns you to the game.
+
+EXIT STAGE - Allows you to exit the current stage if it has already been cleared.
+	(Only appears if the stage has already been cleared.)
+
+TITLE SCREEN - Returns you back to the Title Screen (You will lose un-saved progress)
+
+EXIT GAME - Exit the game (You will lose un-saved progress)
+
+p

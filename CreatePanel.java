@@ -15,6 +15,7 @@ public class CreatePanel extends JPanel
  private JButton help;
  SubmitListener subListen;
  BrowseListener browseListen;
+ HelpListener helpListen;
  JTextArea fileInformation;
  JScrollPane scroll;
  JTextArea fileHistory;
@@ -38,8 +39,8 @@ public class CreatePanel extends JPanel
 	 submit.addActionListener(subListen);
 	 
 	 help = new JButton("help"); //this button displays the help page
-	 //listen = new ButtonListener();
-	 //help.addActionListener(listen);
+	 helpListen = new HelpListener();
+	 help.addActionListener(helpListen);
 	 
 	 fileInformation = new JTextArea("No Files"); //displays the information (items a-g) about the file 
 	 fileInformation.setSize(50,80);
@@ -123,9 +124,22 @@ private class SubmitListener implements ActionListener
     
     }
   }//end of submitListener
-    
+}
+ private class HelpListener implements ActionListener
+ {
+	 public void actionPerformed(ActionEvent event){
+		 JFrame fr = new JFrame("Help");
+		 fr.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		 JTextArea ft = new JTextArea("1.Use the program by selcting browse to find a text file."+ "\n "
+		 		+ "2. after selcting the file use submit to acess infromation on it");
+		 fr.setSize(500, 500);
+		 fr.add(ft);
+		 fr.setVisible(true);
+		 
+	 }
+ }
  	// if there is no error, add a project to project list
     // otherwise, show an error message
 
   } //end of actionPerformed method
- }//end of CreatePanel
+ //end of CreatePanel

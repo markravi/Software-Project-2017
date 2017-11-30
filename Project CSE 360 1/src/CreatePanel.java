@@ -26,20 +26,19 @@ public class CreatePanel extends JPanel
  JPanel listPane;
  JPanel buttonPane;
  JPanel helpPane;
+ JPanel textFieldPane;
  JFrame frame;
- JTextField browseFilePath;
+ JLabel browseFilePath;
  JLabel analysisLabel, fileHistoryLabel;
  ArrayList<readTxtFile> history = new ArrayList();
- private ArrayList<String> McWords= new ArrayList();
- int TotalFiles;
  
  public CreatePanel()
  {
 	//initializing the frame
 	 frame = new JFrame("Text Analzyer");
 	 //initializing all the buttons, text areas
-	 browseFilePath = new JTextField("Select a text file"); //where the file path of the inputed file is displayed
-	 browseFilePath.setBounds(16, 16, 50, 2); //save: this.getWidth()
+	 browseFilePath = new JLabel(); //where the file path of the inputed file is displayed
+	 
 	 
 	 browse = new JButton("browse"); // allows the user to browse for a file
 	 browseListen = new BrowseListener();
@@ -69,6 +68,7 @@ public class CreatePanel extends JPanel
 	 //declaring/setting up the panels
 	 buttonPane = new JPanel();
 	 buttonPane.setLayout(new BoxLayout(buttonPane, BoxLayout.LINE_AXIS));
+	
 	 buttonPane.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 	 buttonPane.add(browse);
 	 buttonPane.add(Box.createRigidArea(new Dimension(10, 0)));
@@ -77,6 +77,11 @@ public class CreatePanel extends JPanel
 	 buttonPane.add(average);
 	 buttonPane.add(Box.createHorizontalGlue());
 	 
+	 helpPane = new JPanel();
+	 helpPane.setLayout(new BoxLayout(helpPane, BoxLayout.LINE_AXIS));
+	 helpPane.setBorder(BorderFactory.createEmptyBorder(0, 10, 10, 10));
+	 helpPane.add(help);
+	 
 	 listPane = new JPanel();
 	 listPane.setLayout(new BoxLayout(listPane, BoxLayout.Y_AXIS));
 	 listPane.add(buttonPane);
@@ -84,21 +89,21 @@ public class CreatePanel extends JPanel
 	 listPane.add(new JLabel(" "));
 	 listPane.add(fileHistory);
 	 listPane.add(new JLabel(" "));
+	 //listPane.add(helpPane);
+	
 	 
-	 helpPane = new JPanel();
-	 helpPane.setLayout(new BoxLayout(helpPane, BoxLayout.LINE_AXIS));
-	 helpPane.setBorder(BorderFactory.createEmptyBorder(0, 10, 10, 10));
-	 helpPane.add(help);
+	
 	 
 	 //adding all the elements to the default pane
 	 frame.setSize(500, 500);
-	 //frame.setLayout(new BorderLayout());
-	 //frame.add(browseFilePath,BorderLayout.NORTH);
-	 frame.add(browseFilePath);
+	 frame.setLayout(new BorderLayout());
+	 frame.add(browseFilePath, BorderLayout.NORTH);
+	 frame.add(new JLabel("           "), BorderLayout.EAST);
+	 frame.add(new JLabel("           "), BorderLayout.WEST);
 	 frame.add(listPane,BorderLayout.CENTER); //adding listPane to the default Panel
 	 frame.add(helpPane, BorderLayout.SOUTH);//adding the helpPane to the default Panel
 	 frame.setVisible(true);
-	 
+	 add(frame);
  }
  
  int choice;
@@ -177,7 +182,7 @@ private class SubmitListener implements ActionListener
 			
 			TotalFiles++; //updates the current amount of files
  
-			browseFilePath.setText(filePathName); //Allows the user to view the file path
+			browseFilePath.setText("           " + filePathName); //Allows the user to view the file path
     	 
 			if(first == false)
 			{//check used to determine if input is the first in text field   		 

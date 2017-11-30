@@ -15,9 +15,11 @@ public class CreatePanel extends JPanel
  private JButton submit;
  private JButton browse;
  private JButton help;
+ private JButton average;
  SubmitListener subListen;
  BrowseListener browseListen;
  HelpListener helpListen;
+ AverageListener avgListen;
  JTextArea fileInformation;
  JScrollPane scroll;
  JTextArea fileHistory;
@@ -26,13 +28,16 @@ public class CreatePanel extends JPanel
  JPanel helpPane;
  JFrame frame;
  JTextField browseFilePath;
+ JLabel analysisLabel, fileHistoryLabel;
  ArrayList<readTxtFile> history = new ArrayList();
  
  public CreatePanel()
  {
+	//initializing the frame
+	 frame = new JFrame("Text Analzyer");
 	 //initializing all the buttons, text areas
 	 browseFilePath = new JTextField("Select a text file"); //where the file path of the inputed file is displayed
-	 browseFilePath.setBounds(16, 16, 544, 2); //save: this.getWidth()
+	 browseFilePath.setBounds(16, 16, 50, 2); //save: this.getWidth()
 	 
 	 browse = new JButton("browse"); // allows the user to browse for a file
 	 browseListen = new BrowseListener();
@@ -42,24 +47,33 @@ public class CreatePanel extends JPanel
 	 subListen = new SubmitListener();
 	 submit.addActionListener(subListen);
 	 
+	 average = new JButton("Calculate Average");
+	 avgListen = new AverageListener();
+	 average.addActionListener(avgListen);
+	 
 	 help = new JButton("help"); //this button displays the help page
 	 helpListen = new HelpListener();
 	 help.addActionListener(helpListen);
 	 
 	 fileInformation = new JTextArea("No Files"); //displays the information (items a-g) about the file 
-	 fileInformation.setSize(50,80);
+	 fileInformation.setSize(50,70);
 	 
 	 scroll = new JScrollPane(fileInformation); 
 	 
 	 fileHistory = new JTextArea("No File History"); //displays the previous files that were inputted into the program
-	 fileHistory.setSize(50,80);
+	 fileHistory.setSize(50,70);
 	 
 	
 	 //declaring/setting up the panels
 	 buttonPane = new JPanel();
 	 buttonPane.setLayout(new BoxLayout(buttonPane, BoxLayout.LINE_AXIS));
+	 buttonPane.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 	 buttonPane.add(browse);
+	 buttonPane.add(Box.createRigidArea(new Dimension(10, 0)));
 	 buttonPane.add(submit);
+	 buttonPane.add(Box.createRigidArea(new Dimension(10, 0)));
+	 buttonPane.add(average);
+	 buttonPane.add(Box.createHorizontalGlue());
 	 
 	 listPane = new JPanel();
 	 listPane.setLayout(new BoxLayout(listPane, BoxLayout.Y_AXIS));
@@ -71,17 +85,31 @@ public class CreatePanel extends JPanel
 	 
 	 helpPane = new JPanel();
 	 helpPane.setLayout(new BoxLayout(helpPane, BoxLayout.LINE_AXIS));
+	 helpPane.setBorder(BorderFactory.createEmptyBorder(0, 10, 10, 10));
 	 helpPane.add(help);
 	 
 	 //adding all the elements to the default pane
-	 setLayout(new BorderLayout());
-	 add(browseFilePath,BorderLayout.NORTH);
-	 add(listPane,BorderLayout.CENTER); //adding listPane to the default Panel
-	 add(helpPane, BorderLayout.SOUTH);//adding the helpPane to the default Panel
+	 frame.setSize(500, 500);
+	 //frame.setLayout(new BorderLayout());
+	 //frame.add(browseFilePath,BorderLayout.NORTH);
+	 frame.add(browseFilePath);
+	 frame.add(listPane,BorderLayout.CENTER); //adding listPane to the default Panel
+	 frame.add(helpPane, BorderLayout.SOUTH);//adding the helpPane to the default Panel
+	 frame.setVisible(true);
+	 
+	 add(frame);
  }
  
  int choice;
  JFileChooser chooser;
+ 
+ //Needs to be written
+ private class AverageListener implements ActionListener
+ {
+	 public void actionPerformed(ActionEvent event){
+		 
+	 }
+ }
  
  private class BrowseListener implements ActionListener
  {
@@ -112,7 +140,7 @@ private class SubmitListener implements ActionListener
     	 
 			if(first == false)
 			{//check used to determine if input is the first in text field   		 
-				fileHistory.setText(fileName + "\t" + Reader.getTime());
+				fileHistory.setText(fileName + "    " + Reader.getTime());
 				first = true;
 			}
 			else

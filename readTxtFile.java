@@ -68,6 +68,7 @@ public class readTxtFile
 			newStr = newStr.replace(")", "");
 			newStr = newStr.replace("+", "");
 			newStr = newStr.replace("=", "");
+			newStr = newStr.replace("'", "");
 			return newStr;
 		}
 		else

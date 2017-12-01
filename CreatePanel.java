@@ -34,6 +34,7 @@ public class CreatePanel extends JPanel
  {
 	//initializing the frame
 	 frame = new JFrame("Text Analzyer");
+	 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	 
 	 //initializing all the components below
 	 
@@ -101,7 +102,7 @@ public class CreatePanel extends JPanel
 	 frame.add(listPane,BorderLayout.CENTER); //adding listPane to the default Panel
 	 frame.add(helpPane, BorderLayout.SOUTH);//adding the helpPane to the default Panel
 	 frame.setVisible(true);
-	 add(frame);
+	 //add(frame);
  }
  
  int choice;
@@ -131,12 +132,12 @@ public class CreatePanel extends JPanel
 			 Iter++;
 		 }
 		 fileInformation.setText("");
-		 fileInformation.append("Total lines: " + averageL/TotalFiles+"\n");
-		 fileInformation.append("Blanks: " + averageB/TotalFiles+"\n");
-		 fileInformation.append("Spaces: " + averageS/TotalFiles+"\n");
-		 fileInformation.append("Words: " + averageW/TotalFiles+"\n");
-		 fileInformation.append("Average line character length: " + averageLc/TotalFiles+"\n");
-		 fileInformation.append("Average word character length: " + averageWc/TotalFiles+"\n"); 
+		 fileInformation.append("Total lines: " + Math.floor((averageL/TotalFiles)*100)/100+"\n");
+		 fileInformation.append("Blanks: " + Math.floor((averageB/TotalFiles)*100)/100+"\n");
+		 fileInformation.append("Spaces: " + Math.floor((averageS/TotalFiles)*100)/100+"\n");
+		 fileInformation.append("Words: " + Math.floor((averageW/TotalFiles)*100)/100+"\n");
+		 fileInformation.append("Average line character length: " + Math.floor((averageLc/TotalFiles)*100)/100+"\n");
+		 fileInformation.append("Average word character length: " + Math.floor((averageWc/TotalFiles)*100)/100+"\n"); 
 		for(int i=0; i< (int)McWords.size(); i++){
 			for(int j=i+1;j<i;j++) {
 				if(McWords.get(i).equals(McWords.get(j))) {
@@ -183,14 +184,14 @@ private class SubmitListener implements ActionListener
     	 
 			if(first == false)
 			{//check used to determine if input is the first in text field   		 
-				fileHistory.setText(fileName + "    " + Reader.getTime());
+				fileHistory.setText(fileName + "\t\t" + Reader.getTime());
 				first = true;
 			}
 			else
 			{
 				//Displays the files on the fileHistory text area
 				String S = fileHistory.getText();
-				S = S + "\n" + fileName + "\t" + Reader.getTime();
+				S = S + "\n" + fileName + "\t\t" + Reader.getTime();
 				fileHistory.setText(S);	
 			}
 			// if there is no error, add a project to project list

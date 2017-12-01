@@ -4,10 +4,6 @@ import javax.swing.*;
 import java.io.*;
 import java.util.*;
 
-//need to add a helpListener 
-//need to allow the history to be interactive and show the information about each particular file
-//need to handle errors
-
 public class CreatePanel extends JPanel
 {
 	
@@ -33,11 +29,14 @@ public class CreatePanel extends JPanel
  ArrayList<readTxtFile> history = new ArrayList();
  private ArrayList<String> McWords= new ArrayList();
  int TotalFiles;
+ 
  public CreatePanel()
  {
 	//initializing the frame
 	 frame = new JFrame("Text Analzyer");
-	 //initializing all the buttons, text areas
+	 
+	 //initializing all the components below
+	 
 	 browseFilePath = new JLabel(); //where the file path of the inputed file is displayed
 	 
 	 
@@ -49,7 +48,7 @@ public class CreatePanel extends JPanel
 	 subListen = new SubmitListener();
 	 submit.addActionListener(subListen);
 	 
-	 average = new JButton("Calculate Average");
+	 average = new JButton("Calculate Average");//alows the user to calculate the averages of the files inputted
 	 avgListen = new AverageListener();
 	 average.addActionListener(avgListen);
 	 
@@ -60,16 +59,16 @@ public class CreatePanel extends JPanel
 	 fileInformation = new JTextArea("No Files"); //displays the information (items a-g) about the file 
 	 fileInformation.setSize(50,70);
 	 
-	 scroll = new JScrollPane(fileInformation); 
 	 
 	 fileHistory = new JTextArea("No File History"); //displays the previous files that were inputted into the program
 	 fileHistory.setSize(50,70);
 	 
 	
-	 //declaring/setting up the panels
+	 //declaring and setting up the panels
+	 
+	 //adding the components and then formatting the buttonPane
 	 buttonPane = new JPanel();
 	 buttonPane.setLayout(new BoxLayout(buttonPane, BoxLayout.LINE_AXIS));
-	
 	 buttonPane.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 	 buttonPane.add(browse);
 	 buttonPane.add(Box.createRigidArea(new Dimension(10, 0)));
@@ -78,11 +77,13 @@ public class CreatePanel extends JPanel
 	 buttonPane.add(average);
 	 buttonPane.add(Box.createHorizontalGlue());
 	 
+	 //adding the components and then formatting the helpPane
 	 helpPane = new JPanel();
 	 helpPane.setLayout(new BoxLayout(helpPane, BoxLayout.LINE_AXIS));
 	 helpPane.setBorder(BorderFactory.createEmptyBorder(0, 10, 10, 10));
 	 helpPane.add(help);
 	 
+	 //adding the components and then formatting the listPane
 	 listPane = new JPanel();
 	 listPane.setLayout(new BoxLayout(listPane, BoxLayout.Y_AXIS));
 	 listPane.add(buttonPane);
@@ -90,12 +91,8 @@ public class CreatePanel extends JPanel
 	 listPane.add(new JLabel(" "));
 	 listPane.add(fileHistory);
 	 listPane.add(new JLabel(" "));
-	 //listPane.add(helpPane);
-	
 	 
-	
-	 
-	 //adding all the elements to the default pane
+	 //adding the rest of the components and panes to the default pane
 	 frame.setSize(500, 500);
 	 frame.setLayout(new BorderLayout());
 	 frame.add(browseFilePath, BorderLayout.NORTH);

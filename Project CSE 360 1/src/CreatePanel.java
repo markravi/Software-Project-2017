@@ -108,41 +108,41 @@ public class CreatePanel extends JPanel
  private class AverageListener implements ActionListener
  {
 	 public void actionPerformed(ActionEvent event){
-		 int Tfiles= TotalFiles-1;
+		 int Tfiles= TotalFiles-1; //creates a loop iterator
 		 int Iter =0;
-		 double averageL = 0;
+		 double averageL = 0; //creates all the average variables
 		 double averageB = 0;
 		 double averageS = 0;
 		 double averageW = 0;
 		 double averageLc = 0;
 		 double averageWc = 0;
 		 while(Iter <= Tfiles) {
-			 readTxtFile ReaderAve = history.get(Iter); 
-			 averageL += ReaderAve.getLines();
+			 readTxtFile ReaderAve = history.get(Iter);//gets the file reader 
+			 averageL += ReaderAve.getLines();//adds up all totals
 			 averageB += ReaderAve.getBlanks();
 			 averageS += ReaderAve.getSpaces();
 			 averageW += ReaderAve.getWords();
 			 averageLc += ReaderAve.getLineCharAvg();
 			 averageWc += ReaderAve.getWordCharAvg();
-			 McWords.add(ReaderAve.getMostCommon());
+			 McWords.add(ReaderAve.getMostCommon());//new array of common words
 			 Iter++;
 		 }
 		 fileInformation.setText("");
-		 fileInformation.append("Total lines: " + averageL/TotalFiles+"\n");
+		 fileInformation.append("Total lines: " + averageL/TotalFiles+"\n");//appends all files to the text field
 		 fileInformation.append("Blanks: " + averageB/TotalFiles+"\n");
 		 fileInformation.append("Spaces: " + averageS/TotalFiles+"\n");
 		 fileInformation.append("Words: " + averageW/TotalFiles+"\n");
 		 fileInformation.append("Average line character length: " + averageLc/TotalFiles+"\n");
 		 fileInformation.append("Average word character length: " + averageWc/TotalFiles+"\n"); 
-		for(int i=0; i< (int)McWords.size(); i++){
+		for(int i=0; i< (int)McWords.size(); i++){//loop to remove repeated words in the most common words
 			for(int j=i+1;j<i;j++) {
 				if(McWords.get(i).equals(McWords.get(j))) {
 					McWords.remove(j);
 				}
 			}
 		}
-		String McString=McWords.get(0);
-		for(int i=1; i< (int)McWords.size(); i++){
+		String McString=McWords.get(0);//creates string
+		for(int i=1; i< (int)McWords.size(); i++){ //appends the conetts of the array into a string
 		McString= McString +","+ McWords.get(i);
 		}
 		fileInformation.append("Most Common Word(s): " +McWords +"\n");
@@ -211,11 +211,11 @@ private class SubmitListener implements ActionListener
 private class HelpListener implements ActionListener
 {
 	public void actionPerformed(ActionEvent event)
-	{
+	{	//creates and prints the help info
 		JFrame fr = new JFrame("Help");
 		fr.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		JTextArea ft = new JTextArea("1. Select a text file to be analyzed using the browse button.\n 2. When the correct file is selected, press the submit button to perform the analysis.\n 3. All previously analyzed files will have their results saved for averaging.\n\nSoftware Developed by\nMarkanday Ravi\nCallahan Stormer\nKyle Stevens\n\n For CSE360\nCalliss MW 4:30");
-		fr.setSize(500, 500);
+		fr.setSize(500, 500);//sets size of the frame
 		fr.add(ft);
 		fr.setVisible(true);	 
 	}
